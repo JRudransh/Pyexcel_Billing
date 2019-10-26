@@ -52,3 +52,12 @@ def text_value_of(number, prefix="Rs.", suffix="Only"):
     word = num2words(number)
     word = f'{prefix} {word.replace(",", "").replace("-", " ").title()} {suffix}'
     return word
+
+
+def convert_to_dictionary(data, index):
+    c_d_d = {}
+    n = 0
+    for i in index:
+        c_d_d.update({i: data[n]})
+        n += 1
+    return c_d_d

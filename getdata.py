@@ -8,7 +8,18 @@ def get_products():
         if product == "":
             done = True
         else:
-            product_list.append(product)
+            d = False
+            get = input("Enter Amount: ")
+            while not d:
+                try:
+                    amount = float(get)
+                    d = True
+                except ValueError:
+                    print("Invalid input !!")
+                    get = input("Enter Amount Again: ")
+                    done = False
+            prd_pack = (product, amount)
+            product_list.append(prd_pack)
     return product_list
 
 
@@ -108,24 +119,11 @@ def get_address():
     return address
 
 
-number = get_number()
-add = get_address()
-prods = get_products()
-adv = get_advance()
-discount = get_discount()
-notes = get_note()
-count = 1
-count2 = 1
-
-print(f"The number is: +91{number}")
-print(f"The address is: {add}")
-for i in prods:
-    print(f"The product-{count} is: {i}")
-    count += 1
-
-for j in notes:
-    print(f"The Note-{count2} is: {j}")
-    count2 += 1
-
-
-
+def get_all_client_data():
+    number = get_number()
+    add = get_address()
+    prods = get_products()
+    adv = get_advance()
+    discount = get_discount()
+    notes = get_note()
+    return number, add, prods, adv, discount, notes

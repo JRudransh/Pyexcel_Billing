@@ -2,19 +2,22 @@ from openpyxl import Workbook
 import os
 from values import sheet_start_from
 pos1 = sheet_start_from
-pos2 = pos1 + 3
+pos2 = pos1 + 2
 pos3 = pos2 + 1
 
 
 class CreateNewExcelFile:
-    def __init__(self, pos4=pos3 + 10, name="prj_main"):
+    def __init__(self, data_len=7, name="prj_main"):
+        pos4 = pos3 + data_len
         # Create new workbook
         self.wb = Workbook()
         self.sheet = "Billing"
         ws = self.wb.create_sheet(self.sheet, 0)
 
-        # For Name Phone NO & Address
+        # For Name Phone NO & Address three row
         [ws.merge_cells(f"A{i}:D{i}") for i in range(pos1, pos2)]
+
+        # One row skipped
 
         # For Product List with Heading
         [ws.merge_cells(f"B{i}:D{i}") for i in range(pos3, pos4)]

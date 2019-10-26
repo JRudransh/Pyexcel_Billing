@@ -27,6 +27,10 @@ serial_number_file_path = f"{path_system_data_folder}/"
 #
 #
 sheet_start_from = 3
-
+#
+#
+#
+#
+client_data_list_format = ['number', 'address', 'products', 'advance', 'discount', 'notes']
 
 
