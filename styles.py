@@ -1,6 +1,6 @@
 from openpyxl.styles import Border, Side, Alignment, Font
 
-font = Font(name='Calibri',
+font = Font(name='Acme',
             size=11,
             bold=True
             )
