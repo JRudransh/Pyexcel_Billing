@@ -21,12 +21,12 @@ def get_number():
             if len(str(number_int)) != 10:
                 int("aaa")
             done = True
-            number = f"+91{number_int}"
+            phone_number = f"+91{number_int}"
         except ValueError:
             print("Invalid input !!")
             get = input("Enter Customer's Number Again: ")
             done = False
-    return number
+    return phone_number
 
 
 def get_discount():
@@ -36,12 +36,12 @@ def get_discount():
         try:
             number_int = int(get)
             done = True
-            discount = number_int
+            discount_amount = number_int
         except ValueError:
             print("Invalid input !!")
             get = input("Enter Discount Rs. Again: ")
             done = False
-    return discount
+    return discount_amount
 
 
 def get_gst():
