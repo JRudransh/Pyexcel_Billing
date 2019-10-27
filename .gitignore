@@ -1,4 +1,5 @@
 *.xlsx
 *.xlsx#
 .idea
-*_Files
+*_Files/
+*.bak
