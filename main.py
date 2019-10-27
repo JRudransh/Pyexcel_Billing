@@ -12,6 +12,7 @@ dictionary = convert_to_dictionary(client_data, client_data_list_format)
 product_count = len(dictionary['products'])
 sl = get_serial_no(sl_p, sl_n)
 dictionary.update({'invoice no': sl})
+# static date
 dictionary.update({'date': '27/07/2019'})
 
 obj = CreateNewExcelFile(dictionary)
