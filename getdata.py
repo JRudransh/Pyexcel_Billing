@@ -42,6 +42,8 @@ def get_number():
 
 def get_discount():
     get = input("Enter Discount Rs: ")
+    if get == "":
+        get = 0
     done = False
     while not done:
         try:
@@ -120,10 +122,11 @@ def get_address():
 
 
 def get_all_client_data():
-    number = get_number()
+    # number = get_number()
+    name = input("Enter Customer Name: ")
     add = get_address()
     prods = get_products()
     adv = get_advance()
     discount = get_discount()
     notes = get_note()
-    return number, add, prods, adv, discount, notes
+    return name, add, prods, adv, discount, notes

@@ -28,8 +28,6 @@ def get_serial_no(file_path, file_name):
         file = open(sl_f_name[1], "r")
         line = file.readline()
         serial_no = int(line)
-        print(f"Current number is: {serial_no}")
-        print(f"Next number is: {serial_no + 1}")
         file.close()
 
         file = open(sl_f_name[1], "w")
@@ -37,6 +35,7 @@ def get_serial_no(file_path, file_name):
         file.close()
 
         rename(sl_f_name[1], sl_f_name[0])
+    return serial_no
 
 
 def back(limit=1):

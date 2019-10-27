@@ -31,6 +31,6 @@ sheet_start_from = 3
 #
 #
 #
-client_data_list_format = ['number', 'address', 'products', 'advance', 'discount', 'notes']
+client_data_list_format = ['name', 'address', 'products', 'advance', 'discount', 'notes']
 
 
