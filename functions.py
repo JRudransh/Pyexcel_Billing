@@ -43,6 +43,13 @@ def back(limit=1):
         chdir("..")
 
 
+def back_from(filename=None):
+    if filename is None:
+        filename = ["hi"]
+    for i in range(len(filename.split('/'))):
+        chdir("..")
+
+
 def goto(path):
     chdir(path)
 
