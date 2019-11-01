@@ -1,15 +1,16 @@
 from openpyxl import Workbook
 import openpyxl
 import os
-from values import sheet_start_from
+from functions import back_from, goto
+from values import sheet_start_from, path_excel_billing_folder
 from styles import border_all as ba, font, alignment as am
 
 
 class CreateNewExcelFile:
-    def __init__(self, data_dictionary, data_len=8, name="prj_main"):
+    def __init__(self, data_dictionary, data_len=8):
         if data_len < 7 or data_len <= 0:
             data_len = 8
-        self.name = name
+        self.name = "_"
         self.data_len = data_len
         self.pos1 = sheet_start_from
         self.pos2 = self.pos1 + 2
@@ -27,7 +28,7 @@ class CreateNewExcelFile:
             else:
                 value = 'address'
             block = self.ws[f"B{name_row}"]
-            block.value = f'{value.upper()}: {data_dictionary[value]}'
+            block.value = f'{value.upper()}: {data_dictionary[value].title()}'
             self.ws.merge_cells(f"B{name_row}:E{name_row}")
 
         # For INVOICE number & INVOICE Date Row
@@ -87,7 +88,7 @@ class CreateNewExcelFile:
             self.ws.merge_cells(f"B{prd_row}:D{prd_row}")
             sl_b = self.ws[f"A{prd_row}"]
             sl_b.border = ba
-            product_b =  self.ws[f"B{prd_row}"]
+            product_b = self.ws[f"B{prd_row}"]
             product_b.border = ba
             price_b = self.ws[f"E{prd_row}"]
             price_b.border = ba
@@ -97,4 +98,8 @@ class CreateNewExcelFile:
             total_b.border = ba
 
         # To Save
+        self.name = f"{data_dictionary['invoice no']} {data_dictionary['name']}-({data_dictionary['date']})"
+        self.name = self.name.title().replace(' ', '_').replace('/', '.')
+        goto(path_excel_billing_folder)
         self.wb.save(f"{self.name}.xlsx")
+        back_from(path_excel_billing_folder)
