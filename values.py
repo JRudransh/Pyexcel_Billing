@@ -16,6 +16,7 @@ path_system_folder = main_folder[0]
 #
 path_system_data_folder = f"{path_system_folder}/{system_folder[1]}"
 path_public_folder = main_folder[1]
+path_excel_billing_folder = f"{main_folder[1]}/{public_folder[0]}"
 #
 #
 #
